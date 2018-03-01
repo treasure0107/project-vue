@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>图集</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="图集">
+    <meta name="keywords" content="图集">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../style/swiper.min.css" />
+    <link rel="stylesheet" href="../style/base.css" />
+    <link rel="stylesheet" href="css/pageCode.css" />
+    <link rel="stylesheet" href="css/photos.css" />
+</head>
+
+<body>
+    <header class="photos_header">
+        <ul class="photos_bigwin">
+            <li class="photos_logo"></li>
+            <li class="photos_title">|&nbsp;&nbsp;&nbsp;我的图库-让图片管理更简单</li>
+            <li class="photos_itemleft">图集</li>
+            <li class="photos_itemright"><a href="../picture/picture.html">相册</a></li>
+            <li class="photos_itemup">
+                <a href="../upload/upload.html">
+                    <button>上传</button>
+                </a>
+            </li>
+        </ul>
+        <ul class="photos_litwin">
+            <li class="photos_itemleft">图集</li>
+            <li class="photos_itemright"><a href="../picture/picture.html">相册</a></li>
+            <li class="photos_itemup">
+                <a href="../upload/upload.html">
+                    <button>上传</button>
+                </a>
+            </li>
+        </ul>
+        <div class="photos_itemups">
+            <div class="upload-lfImg">
+            </div>
+            <div class="layout">
+                <span></span>
+                <ul>
+                    <li>退出登录</li>
+                </ul>
+            </div>
+        </div>
+        <div class="index-mobile">
+            <p>移动端</p>
+            <div class="index-mobileCode">
+                <div class="index-mobileSao">
+                    <i></i>
+                    <img src="../images/index/mobile-sao.jpg" alt="">
+                    <h1>微信扫一扫</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="photos_body">
+        <div class="photos_left">
+            <div class="photos_lefttops"></div>
+            <div class="photos_taps">
+                <h1>已选择条件 :</h1>
+                <ul>
+                </ul>
+            </div>
+            <div class="photos_leftbody">
+                <div>
+                    <h2>空间</h2>
+                    <ul id="spacelist">
+                    </ul>
+                </div>
+                <div>
+                    <h2>风格</h2>
+                    <ul id="stylelist">
+                    </ul>
+                </div>
+            </div>
+            <div class="upload-lfspa">
+                <div></div>
+                <div></div>
+                <div>已用空间<span> 0 </span>/ 100G</div>
+            </div>
+        </div>
+        <div class="photos_right">
+            <div class="taglist">
+                <a href="javascript:void(0);" class="more-edit">批量编辑</a>
+            </div>
+            <div class="editall">
+                <ul>
+                    <li>
+                        <input type="checkbox" name="" id="selectall">本页全选 已选择<span id="selectnum">0</span>张</li>
+                    <li class="notfirst closeedit">完成</li>
+                    <li class="notfirst" id="deleteall">删除</li>
+                    <li class="notfirst" id="moveto">移动至相册</li>
+                    <li class="notfirst" id="modifyspace">修改空间风格</li>
+                    <li class="notfirst" id="modifyintro">图片描述</li>
+                </ul>
+            </div>
+            <div class="photos_imglist">
+            </div>
+            <div class="tcdPageCode">
+            </div>
+        </div>
+    </div>
+    <div class="editpic">
+        <div class="editbox">
+            <div style="overflow: hidden;"><span class="closewin"></span></div>
+            <h1>图片编辑</h1>
+            <label>描述</label>
+            <textarea id="editbox_instro"></textarea>
+            <h2>空间</h2>
+            <ul class="editbox_space">
+            </ul>
+            <h2>风格</h2>
+            <ul class="editbox_style">
+            </ul>
+            <div class="photos_button">
+                <button class="photos_btnsave">保存</button>
+                <button class="photos_btndele">删除图片</button>
+            </div>
+        </div>
+    </div>
+    <div class="editpicintro">
+        <div class="editbox">
+            <div style="overflow: hidden;"><span class="closeintro"></span></div>
+            <h1>图片描述</h1>
+            <textarea id="modify_instro"></textarea>
+            <div class="photos_button">
+                <button class="photos_btnsave">保存</button>
+                <button class="photos_btndele">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="bigimg">
+        <div class="bigimg_close"><span class="closebigimg"></span></div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <!-- Navigation -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+    </div>
+    <!--背景遮罩-->
+    <div class="upload-mask"></div>
+    <!--空间风格-->
+    <div class="spaceSty">
+        <span class="photo-hide"></span>
+        <h1>空间风格</h1>
+        <h2>空间</h2>
+        <ul class="spaceList"></ul>
+        <h2>风格</h2>
+        <ul class="styleList"></ul>
+        <p class="photo-make">
+            <button type="button" class="confirm">确认</button>
+            <button class="cancel">取消</button>
+        </p>
+    </div>
+    <!--移动至相册-->
+    <div class="new-photo">
+        <span class="photo-hide"></span>
+        <h1>移动至相册</h1>
+        <div>
+            <label>相册</label>
+            <input type="text" class="photo-name" readonly>
+            <ul class="upload-rtAll"></ul>
+        </div>
+        <p class="photo-make">
+            <button type="button" class="confirm">保存</button>
+            <button class="cancel">取消</button>
+        </p>
+    </div>
+    <div class="collect_success"></div>
+    <script id="picitem" type="text/x-jquery-tmpl">
+        <div class="imgitem" style="background-image:url(${imghost+imgUrl})">
+            <span data-id="${iid}" class="edit">编辑</span>
+            <input data-id="${iid}" type="checkbox" name="imgitem" class="checkitem">
+        </div>
+    </script>
+    <script id="nodata" type="text/x-jquery-tmpl">
+        <div class="noDate">
+            <div class="noDate-back" style="background-image:url(../images/nopic.svg)"></div>
+            <div class="noDate-tip">
+                <h1 slot="tip">没有找到符合条件的图片</h1>
+            </div>
+        </div>
+    </script>
+    <script id="bigimg" type="text/x-jquery-tmpl">
+        <div class="swiper-slide">
+            <img data-src="${imghost+imgUrl}" class="swiper-lazy">
+            <div class="imgintro">
+                <div class="abimg">${albumName}</div>
+                <span class="imgcontent">${imgDesc}</span><span class="space_style">${spacestyle}</span>
+            </div>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+        </div>
+    </script>
+    <script src="../script/jquery-1.11.1.min.js"></script>
+    <script src="../script/jquery.tmpl.min.js"></script>
+    <script src="../script/swiper.min.js"></script>
+    <script src="../script/swiper.min.js"></script>
+    <script src="../script/apiProvider.js"></script>
+    <script src="../script/jquery.page.js"></script>
+    <script src="js/photos.js"></script>
+</body>
+
+</html>

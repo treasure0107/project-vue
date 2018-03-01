@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>相册</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="图库">
+    <meta name="keywords" content="图库">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../style/base.css" />
+    <link rel="stylesheet" href="../style/pageCode.css" />
+    <link rel="stylesheet" href="css/picture.css" />
+</head>
+
+<body>
+    <header class="photos_header">
+        <ul class="photos_bigwin">
+            <li class="photos_logo"></li>
+            <li class="photos_title">|&nbsp;&nbsp;&nbsp;我的图库-让图片管理更简单</li>
+            <li class="photos_itemleft"><a href="../photos/photos.html">图集</a></li>
+            <li class="photos_itemright">相册</li>
+            <li class="photos_itemup">
+                <a href="../upload/upload.html">
+                    <button>上传</button>
+                </a>
+            </li>
+        </ul>
+        <ul class="photos_litwin">
+            <li class="photos_itemleft"><a href="../photos/photos.html">图集</a></li>
+            <li class="photos_itemright">相册</li>
+            <li class="photos_itemup">
+                <a href="../upload/upload.html">
+                    <button>上传</button>
+                </a>
+            </li>
+        </ul>
+        <div class="photos_itemups">
+            <div class="upload-lfImg">
+            </div>
+            <div class="layout">
+                <span></span>
+                <ul>
+                    <li>退出登录</li>
+                </ul>
+            </div>
+        </div>
+        <div class="index-mobile">
+            <p>移动端</p>
+            <div class="index-mobileCode">
+                <div class="index-mobileSao">
+                    <i></i>
+                    <img src="../images/index/mobile-sao.jpg" alt="">
+                    <h1>微信扫一扫</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="upload-body">
+        <div class="upload-lf">
+            <div class="photos_lefttops"></div>
+            <div class="upload-lfdesc">
+                <p>图片格式：JPG、PNG、BMP</p>
+                <p>版权声明：您应尊重相关作品著作权人</p>
+                <p>合法权益，未经著作权人合法授权，不</p>
+                <p>能违法上传、存储、分享他人作品</p>
+            </div>
+            <div class="upload-lfspa">
+                <div></div>
+                <div></div>
+                <div>已用空间<span> 0 </span>/ 100G</div>
+            </div>
+        </div>
+        <div class="upload-rt">
+            <div class="picture-rtCon">
+                <div class="picture-rtHead">
+                    <div>
+                        <input type="text" placeholder="请输入搜索词" id="picture-search">
+                        <span class="picture-search"></span>
+                    </div> 
+                    <a href="javascript:void(0);" class="new-pic" id="newnAlbum">+ 新建相册</a>
+                </div>
+                <div class="picture-rtBody"></div>
+            </div>
+            <!--初始化分页-->
+            <div class="tcdPageCode" id="initPage"></div>
+            <!--分页-->
+            <div class="tcdPageCode" id="searPage"></div>
+        </div>
+    </div>
+    <div class="collect_success"></div>
+    <!--背景遮罩-->
+    <div class="upload-mask"></div>
+    <!--新建相册弹框-->
+    <div class="new-photo">
+        <span class="photo-hide"></span>
+        <h1>新建相册</h1>
+        <p>
+            <label>名称</label>
+            <input type="text" class="photo-name">
+        </p>
+        <p class="photo-make">
+            <button type="button" class="confirm">保存</button>
+            <button class="cancel">取消</button>
+        </p>
+    </div>
+     <!--编辑相册弹框-->
+    <div class="edit-photo">
+        <span class="photo-hide"></span>
+        <h1>修改相册名称</h1>
+        <p>
+            <label>名称</label>
+            <input type="text" class="photo-name">
+        </p>
+        <p class="photo-make">
+            <button type="button" class="confirm">保存</button>
+            <!-- <button class="cancel">删除相册</button> -->
+        </p>
+    </div>
+    <div class="re-list"></div>
+     <!--编辑相册弹框-->
+    <div class="edit-coverimg">
+        <span class="photo-hide"></span>
+        <h1>修改相册封面</h1>
+        <div class="coverimg">
+            <button type="button" class="confirm_cover">修改相册封面
+            <form id="upImg">
+                 <input type="file" name="file" multiple id="addPic">
+            </form>
+            </button>
+        </div>
+    </div>
+    <script id="picItem" type="text/x-jquery-tmpl">
+        <div class="picture-rtItem">
+            <a href="picDetail.html?aid=${aid}&albumName=${encodeURI(albumName)}">
+                {{if coverImgUrl}}
+                    <div class="picture-rtImg" style="background:url(${imghost+coverImgUrl}?w=276&h=300) center center no-repeat;">
+                        <span class="picture-rtCount">${picCount}</span>
+                        <span class="picture-edit">编辑相册</span>
+                        <ul>
+                            <li id="dele-photo" data-id='${aid}'>删除相册</li>
+                            <li id="edit-photo" data-id='${aid}'>修改相册名称</li>
+                            <li id="edit-coverimg" data-id='${aid}' data-coverimg="${imghost+coverImgUrl}">修改相册封面</li>
+                        </ul>
+                    </div>
+                {{else}}
+                    <div class="picture-rtImg" style="background:url(../images/default-pic.jpg) center center no-repeat;">
+                        <span class="picture-edit">编辑相册</span>
+                        <ul>
+                            <li id="dele-photo" data-id='${aid}'>删除相册</li>
+                            <li id="edit-photo" data-id='${aid}'>修改相册名称</li>
+                            <li id="edit-coverimg" data-id='${aid}' data-coverimg="../images/default-pic.jpg">修改相册封面</li>
+                        </ul>
+                    </div>
+                {{/if}}
+                    <p>${albumName}</p>
+             </a>
+        </div>
+    </script>
+    <!--无数据-->
+    <script id="nodata" type="text/x-jquery-tmpl">
+        <div class="noDate">
+            <div class="noDate-back" style="background-image:url(../images/nopic.svg)"></div>
+            <div class="noDate-tip">
+                <h1 slot="tip">没有找到符合条件的相册</h1>
+            </div>
+        </div>
+    </script>
+    <script src="../script/jquery-1.11.1.min.js"></script>
+    <script src="../script/jquery.tmpl.min.js"></script>
+    <script src="../script/apiProvider.js"></script>
+    <script src="../script/jquery.page.js"></script>
+    <script src="js/picture.js"></script>
+</body>
+
+</html>

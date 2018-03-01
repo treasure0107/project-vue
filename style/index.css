@@ -1,0 +1,210 @@
+/*首页样式 start*/
+.index-head{
+    width:100%;
+    height:72px;
+    position:relative;
+}
+.index-headLf{
+    display:inline-block;
+    width:20%;
+    height:100%;
+    background: url(../images/index/index-logo.svg) 48.9% center  no-repeat;
+    background-size:45.8% 80%;
+    vertical-align: middle;
+}
+.index-headRt{
+    height:30px;
+    line-height:30px;
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+    color: rgb(179, 174, 172);
+    display:inline-block;
+    vertical-align: middle;
+    padding-left:16px;
+    border-left:1px solid #d9d4d2;
+}
+.index-mobile{
+    width:62px;
+    height:63px;
+    position:absolute;
+    top:0;
+    right:14.3%;
+    background: #827874 url(../images/index/index-mobile.jpg) center 8px  no-repeat;
+    transition: all .5s;
+}
+.index-mobile:hover .index-mobileCode{
+    display:block;
+}
+.index-mobile p{
+    font-size: 13px;
+    font-family: "Microsoft YaHei";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-top:40px;
+}
+.index-mobileCode{
+    position:absolute;
+    top:63px;
+    left:-60px;
+    width:181px;
+    height:173px;
+    padding-top:9px;
+    z-index:9999;
+    display:none;
+}
+.index-mobileSao{
+    width:100%;
+    text-align: center;
+    height:100%;
+    position:relative;
+    background-color: #827874;
+}
+.index-mobileSao i{
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    border:10px solid transparent;
+    border-top-color:#fff;
+}
+.index-mobileSao img{
+    margin-top:28px;
+    margin-bottom:9px;
+    width:110px;
+}
+.index-mobileSao h1{
+    color:#fff;
+}
+.index-mobileSao p{
+    font-size: 15px;
+    font-family: "Microsoft YaHei";
+    color: rgb(179, 174, 172);
+}
+.index-body{
+    /*min-height:calc(100vh - 157px);*/
+    padding-bottom:70px;
+}
+.index-banner{
+    position:relative;
+    width:100%;
+    height:550px;
+    background: url(../images/index/index-banner.jpg) center center no-repeat;
+    background-size:cover;
+}
+.index-bannerCon{
+    width:360px;
+    height:450px;
+    position:absolute;
+    top:59px;
+    right:14%;
+    background-color: #fff;
+}
+.index-bannerCon h1{
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+    color: rgb(179, 174, 172);
+    width:100%;
+    text-align: center;
+    height:150px;
+    line-height:150px;
+}
+#index-login{
+    padding:0 30px;
+}
+.index-phone input{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color:#333;
+    text-indent:14px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width:100%;
+    height:50px;
+    border:1px solid #e7e7e7;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    margin-bottom:18px;
+}
+ #code{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color:#333;
+    text-indent:14px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width:162px;
+    height:50px;
+    border:1px solid #e7e7e7;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    vertical-align: middle;
+}
+.index-code .getCode{
+     font-size: 15px;
+     font-family: "Microsoft YaHei";
+     color: rgb(130, 120, 116);
+    width:119px;
+    height:50px;
+    border:1px solid #e7e7e7;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+     vertical-align: middle;
+    margin-left:15px;
+}
+.index-login{
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    color: rgb(255, 255, 255);
+    width:100%;
+    text-align:center;
+    height:52px;
+    line-height:52px;
+    background-color: #268eff;
+    margin-top:33px;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+}
+.index-show{
+    padding:0 0 0 17.7%;
+}
+.index-show:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.index-show>div{
+    float:left;
+    width:33.3%;
+}
+.index-show>div h1{
+    font-size: 26px;
+    font-family: "YentiEG";
+    color: rgb(130, 120, 116);
+    margin-top:56px;
+}
+.index-show>div h2{
+    width:35px;
+    height:1px;
+    background-color: #827874;
+    margin-top:8px;
+    margin-bottom:15px;
+}
+.index-show>div p{
+    font-size: 15px;
+    font-family: "Microsoft YaHei";
+    color: rgb(179, 174, 172);
+    line-height:1.8;
+}
+.index-foot{
+    height:84px;
+    border-top:1px solid #f0eeed;
+}
+.index-foot p{
+    font-size: 13px;
+    font-family: "Microsoft YaHei";
+    color: rgb(157, 153, 152);
+    text-align: center;
+    margin-top:18px;
+}
+.index-foot p:last-child{
+    margin-top:5px;
+}

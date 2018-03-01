@@ -1,0 +1,143 @@
+
+/* 基本元素重置*/
+html {
+    overflow-x: hidden;
+}
+body,html{height:100%}
+/** 清除内外边距 **/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td,
+img {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 "Microsoft YaHei", SimSun, SimHei;
+    color: #686868;
+    background-color: #FFF;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+em {
+    font-style: normal;
+}
+/** 重置列表元素 **/
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    list-style: none;
+}
+/** 重置超链接元素 **/
+a {
+    text-decoration: none;
+    color: #404242;
+}
+a,
+button {
+    cursor: pointer;
+}
+a,
+button,
+input {
+    outline: none;
+}
+a:hover {
+    text-decoration: none;
+}
+/** 重置图片元素 **/
+img {
+    border: none;
+    vertical-align: middle;
+     pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/** 重置表格元素 **/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.text_over {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    /*-moz-binding: url('ellipsis.xml#ellipsis');*/
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/*弹框*/
+.collect_success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 16px;
+    color: #fff;
+    width: 210px;
+    padding:0 20px;
+    text-align: center;
+    height: 52px;
+    line-height: 52px;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 23px;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    -ms-border-radius: 23px;
+    cursor: pointer;
+    display: none;
+    z-index: 19999999999999;
+}

@@ -1,0 +1,172 @@
+/* style */
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.drag-box {
+    width: 500px;
+    /*height: 350px;*/
+    /*background: url(../image/apt_windowbk.jpg) center no-repeat;*/
+    background-color: #3bb3e0;
+    /*margin: 0 auto 50px;*/
+    margin-left: 50px;
+    margin-bottom: 100px;
+    border: 1px solid #2561b4;
+    position: relative;
+
+}
+
+.drag {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0.6;
+    background-color: #ff6e4b;
+}
+#wrapper{
+	position: absolute;
+	width: 50px;
+	top:0;
+	left: 0;
+	background-color: #fff;
+}
+#wrapper li{
+	height: 20px;
+	border-bottom: 1px solid #ccc;
+}
+.handler {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.drag.drag-1 {
+    width: 150px;
+    height: 150px;
+    top: 100px;
+}
+
+.drag-box.drag-box-2 {
+    height: 600px;
+}
+
+.drag.drag-2 {
+    width: 150px;
+    height: 150px;
+    left: 50%;
+    margin-left: -75px;
+}
+
+.drag.drag-4 {
+    width: 150px;
+    height: 170px;
+}
+
+
+.drag-box.drag-box-5 {
+    width: 80%;
+    margin: 0 auto 0;
+}
+
+.test {
+    position: relative;
+    width: 50%;
+    margin: 0 auto 0;
+    height: 350px;
+    padding: 50px 0;
+    background-color: #ddd;
+    margin: 0 auto 100px;
+    border: 1px solid #aaa;
+}
+
+.test i {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.labelitem {
+    /*background-color: red;*/
+        /*position: absolute;*/
+    /* cursor: pointer; */
+    /* opacity: 0.01; */
+    /* transition: opacity 50ms ease-in-out; */
+    -webkit-transition: opacity 50ms ease-in-out;
+    -moz-transition: opacity 50ms ease-in-out;
+    -ms-transition: opacity 50ms ease-in-out;
+    -o-transition: opacity 50ms ease-in-out;
+    transition: opacity 50ms ease-in-out;
+    opacity: 1;
+}
+.drop-div {
+    width: 36px;
+    height: 36px;
+    /*position: relative;*/
+}
+.drop-div em {
+    background-color: #ff6e4b;
+    width: 9px;
+    height: 9px;
+    border: 2px solid #ff6e4b;
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    -moz-border-radius: 90px;
+    -webkit-border-radius: 90px;
+    border-radius: 90px;
+    z-index: 2;
+    overflow: hidden;
+}
+.drop-div i {
+    -webkit-animation: scaleout 1.0s infinite ease-in-out;
+    -moz-animation: scaleout 1.0s infinite ease-in-out;
+    -o-animation: scaleout 1.0s infinite ease-in-out;
+    animation: scaleout 1.0s infinite ease-in-out;
+    min-height: 36px;
+    min-width: 36px;
+    background-color: #ff6e4b;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    -moz-border-radius: 90px;
+    -webkit-border-radius: 90px;
+    border-radius: 90px;
+    overflow: hidden;
+    z-index: 1;
+}
+.log {
+    width: 50%;
+    height: 75px;
+    line-height: 25px;
+    /*margin: 0 auto 20px;*/
+    margin-left: 50px;
+    font-size: 16px;
+    color: #333;
+}
+
+.log span {
+    color: #cb0000;
+}
+
+
+/* 当点击拖动时，保证当前元素处于前端 */
+
+.drag.on {
+    z-index: 9;
+}
+.title{
+	margin: 50px;
+	font-size: 30px;
+}
+#adddiv{
+	margin:10px 50px;
+	background-color: #de2642;
+	padding: 10px;
+	font-size: 20px;
+}

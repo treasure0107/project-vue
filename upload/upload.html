@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>上传</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="图库">
+    <meta name="keywords" content="图库">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../style/base.css" />
+    <link rel="stylesheet" href="css/upload.css" />
+</head>
+
+<body>
+    <header class="photos_header">
+        <ul class="photos_bigwin">
+            <li class="photos_logo"></li>
+            <li class="photos_title">|&nbsp;&nbsp;&nbsp;我的图库-让图片管理更简单</li>
+            <li class="photos_itemleft"><a href="../photos/photos.html">图集</a></li>
+            <li class="photos_itemright"><a href="../picture/picture.html">相册<a></li>
+            <li class="photos_itemup"><a href="../upload/upload.html"><button>上传</button></a></li>
+        </ul>
+        <ul class="photos_litwin">
+            <li class="photos_itemleft"><a href="../photos/photos.html">图集</a></li>
+            <li class="photos_itemright"><a href="../picture/picture.html">相册</a></li>
+            <li class="photos_itemup">
+                <a href="../upload/upload.html">
+                    <button>上传</button>
+                </a>
+            </li>
+        </ul>
+        <div class="photos_itemups">
+            <div class="upload-lfImg">
+            </div>
+            <div class="layout">
+                <span></span>
+                <ul>
+                    <li>退出登录</li>
+                </ul>
+            </div>
+        </div>
+        <div class="index-mobile">
+            <p>移动端</p>
+            <div class="index-mobileCode">
+                <div class="index-mobileSao">
+                    <i></i>
+                    <img src="../images/index/mobile-sao.jpg" alt="">
+                    <h1>微信扫一扫</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="upload-body">
+        <div class="upload-lf">
+            <div class="photos_lefttops"></div>
+            <div class="upload-lfdesc">
+                <p>图片格式：JPG、PNG、BMP</p>
+                <p>版权声明：您应尊重相关作品著作权人</p>
+                <p>合法权益，未经著作权人合法授权，不</p>
+                <p>能违法上传、存储、分享他人作品</p>
+            </div>
+            <div class="upload-lfspa">
+                <div></div>
+                <div></div>
+                <div>已用空间<span> 0 </span>/ 100G</div>
+            </div>
+        </div>
+        <div class="upload-rt">
+            <div class="upload-rtCon">
+                <div class="upload-rtHead">
+                    <div class="upload-rtSel">
+                        <input type="text" class="selectPic" placeholder="请选择相册" readonly>
+                        <ul class="upload-rtAll"></ul>
+                    </div>
+                    <input type="text" class="createPic" placeholder="创建新相册" readonly>
+                    <input type="text" class="selectStyce" placeholder="请选择空间和风格" readonly>
+                </div>
+                <ul class="upload-rtBody">
+                    <li class="upload-rtAdd">
+                        <h1>+</h1>
+                        <p>添加图片</p>
+                        <form id="upImg">
+                            <input type="file" name="file" multiple id="addPic">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <button class="upload-req" type="button">上传</button>
+        </div>
+    </div>
+    <div class="collect_success"></div>
+    <div class="re-list"></div>
+    <!--背景遮罩-->
+    <div class="upload-mask"></div>
+    <!--新建相册弹框-->
+    <div class="new-photo">
+        <span class="photo-hide"></span>
+        <h1>新建相册</h1>
+        <p>
+            <label>名称</label>
+            <input type="text" class="photo-name">
+        </p>
+        <p class="photo-make">
+            <button type="button" class="confirm">保存</button>
+            <button class="cancel">取消</button>
+        </p>
+    </div>
+    <!--空间风格-->
+    <div class="spaceSty">
+        <span class="photo-hide"></span>
+        <h1>空间风格</h1>
+        <h2>空间</h2>
+        <ul class="spaceList"></ul>
+        <h2>风格</h2>
+        <ul class="styleList"></ul>
+        <p class="photo-make">
+            <button type="button" class="confirm">确认</button>
+            <button class="cancel">取消</button>
+        </p>
+    </div>
+    <script src="../script/jquery-1.11.1.min.js"></script>
+    <script src="../script/apiProvider.js"></script>
+    <script src="../script/jquery.tmpl.min.js"></script>
+    <script src="js/upload.js"></script>
+</body>
+
+</html>

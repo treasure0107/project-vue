@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <title>标签添加</title>
+</head>
+<body>
+    <button id="adddiv">增加标签</button>
+    <div class="id active"></div>
+    <div class="id"></div>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            position: absolute;
+            left: 0px;
+            top: 100px;
+            z-index: -1;
+        }
+        .active{
+            z-index: 5;
+        }
+    </style>
+    <script type="text/javascript">
+        $("#adddiv").click(function(){
+            $("body").append('<div class="id"></div>');
+        });
+    var _x_start,_y_start,_x_move,_y_move,_x_end,_y_end,left_start,top_start;
+        $("body").on("touchstart",'.id',function(e)
+        {
+
+            _x_start=e.originalEvent.touches[0].pageX;
+            _y_start=e.originalEvent.touches[0].pageY;
+            // console.log("start",_x_start)
+            left_start=$(this).css("left");
+            top_start=$(this).css("top");
+
+        })
+        $("body").on("touchmove",".id",function(e)
+        {
+            _x_move=e.originalEvent.touches[0].pageX;
+            _y_move=e.originalEvent.touches[0].pageY;
+            // console.log("move",_x_move)
+            $(this).css("left",parseFloat(_x_move)-parseFloat(_x_start)+parseFloat(left_start)+"px");
+            $(this).css("top",parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start)+"px");
+            // console.log(parseFloat(_y_move)-parseFloat(_y_start)+parseFloat(top_start));
+        })
+        $("body").on("touchend",".id",function(e)
+        {
+            var _x_end=e.originalEvent.changedTouches[0].pageX;
+            var _y_end=e.originalEvent.changedTouches[0].pageY;
+            console.log("end",_y_end)
+        })
+        //阻止浏览器下拉事件
+        $('body').on('touchmove', function (event) {event.preventDefault();});
+        // or
+        // document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+
+    </script>
+</body>
+</html>

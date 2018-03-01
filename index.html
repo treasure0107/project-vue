@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>实地看装修就上简单住</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="简单住不做装修，只提供真实海量实地装修现场，专业装修顾问陪您看，满足您实地看装修的多种选择"/>
+    <meta name="keywords" content="装修,看装修,简单住,homeyeup,装修顾问"/>
+    <link rel="shortcut icon" href="./public/image/favicon.ico" />
+    <link rel="stylesheet" href="./public/css/reset.css?t=20171218" />
+    <link rel="stylesheet" href="./public/css/swiper.min.css" />
+    <link rel="stylesheet" href="./module/index/css/index.css?t=20171218" />
+    <link rel="stylesheet" href="public/css/pageCode.css" />
+    <style>
+        #city,#province{
+            display:inline-block;
+            font-family: "Microsoft YaHei";
+            color:#333;
+            font-size:14px;
+            text-indent:10px;
+            width:87px;
+            height:40px;
+            line-height: 40px;
+            border:1px solid #dcdcdc;
+            margin-right:1px;
+            cursor:pointer;
+            background: url(./module/index/image/arrow-bottom.png) 70px center no-repeat;
+            position:relative;
+        }
+        #area{
+            display:inline-block;
+            font-family: "Microsoft YaHei";
+            color:#333;
+            font-size:14px;
+            text-indent:10px;
+            width:87px;
+            height:40px;
+            line-height:40px;
+            border:1px solid #dcdcdc;
+            cursor:pointer;
+            background: url(./module/index/image/arrow-bottom.png) 70px center no-repeat;
+            position:relative;
+        }
+        #city span,#province span,#area span{
+            display:block;
+            width:100%;
+            height:100%;
+        }
+        .area-list,.city-list,.province-list{
+            position:absolute;
+            top:40px;
+            left:-1px;
+            width:100%;
+            border:1px solid #dcdcdc;
+            background-color: #fff;
+            height:230px;
+            overflow-y: scroll;
+            display:none;
+            z-index:9999;
+        }
+        .area-list li,.city-list li,.province-list li{
+            width:100%;
+            height:23px;
+            line-height: 23px;
+            text-indent:0;
+            text-align: center;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+    <!--[if lt IE 9]>
+      <script src="public/js/html5shiv.min.js"></script>
+      <script src="public/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="body">
+<!--头部start-->
+<!--<header>-->
+    <!--<nav>-->
+        <!--<div class="nav-left fl">-->
+            <!--<a href="javascript:void(0);" class="nav-address">深圳</a>-->
+            <!--<a href="javascript:void(0);" class="nav-hot">简单住服务热线：<span>0755-83979595</span></a>-->
+            <!--&lt;!&ndash;<a href="./module/siteLib/siteLib.html" class="nav-promise" title="约工地-简单住">约工地&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="nav-promiseActive"></span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="javascript:void(0);" class="nav-friend" title="装友圈-简单住">装友圈&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="nav-friendActive"></span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;<a href="./module/map/map.html" class="nav-map" title="地图找工地-简单住">地图找工地&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="nav-mapActive"></span>&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="nav-right fr">-->
+            <!--<a href="javascript:void(0);" class="nav-mobile" title="移动端-简单住"><span>移动端</span><div class="nav-mobCode"><b></b><p>HomeyeUp简单住微信公众号</p></div></a><i></i><a href="javascript:void(0);" class="nav-my" title="我的预约-简单住">我的预约<span class="nav-count">12</span></a><i></i><a href="javascript:void(0);" class="nav-login login-before" title="请登录-简单住">请登录</a><a href="javascript:void(0);" class="nav-login-after"><span></span>-->
+                <!--<b></b>-->
+                <!--<div class="nav-loginShow">-->
+                    <!--<div></div>-->
+                    <!--<b class="nav-pointer"></b>-->
+                    <!--<div class="nav-item nav-loginedMise">我的预约工地<span class="nav-miseCount"></span></div>-->
+                    <!--<div class="nav-item nav-loginedAtten">我关注的项目<span class="nav-attenCount"></span></div>-->
+                    <!--<div class="nav-item nav-loginedHistory">历史浏览项目</div>-->
+                    <!--<div class="nav-item nav-loginedInfo">我的最新消息<span class="nav-infoCount"></span></div>-->
+                    <!--<div class="nav-out">退出</div>-->
+                <!--</div>-->
+            <!--</a><i></i>-->
+            <!--<a href="./module/photos/photos.html" class="nav-service" target="_blank">发布工地</a>-->
+        <!--</div>-->
+    <!--</nav>-->
+    <!--<div class="nav-list">-->
+        <!--<div class="nav-listInfo">-->
+            <!--<div class="nav-listLogo"></div>-->
+            <!--<div class="nav-listCon">-->
+                <!--<a href="javascript:void(0);" class="active">首页</a>-->
+                <!--<a href="./module/siteLib/siteLib.html">看装修</a>-->
+                <!--<a href="./module/siteLib/siteLib.html">免费服务</a>-->
+                <!--<a href="javascript:void(0);" class="nav-listConFriend">装友圈</a>-->
+                <!--<a href="./module/map/map.html">地图找样板</a>-->
+            <!--</div>-->
+            <!--<div class="nav-listSearch">-->
+                <!--<input type="text" placeholder="输入搜索关键词">-->
+                <!--<ul class="nav-listSearchResult"></ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</header>-->
+<!--头部end-->
+<!--主体start-->
+<section>
+    <div class="index-banner">
+        <div class="index-bannerFree">
+            <h1>免费报价与设计</h1>
+            <input type="text" placeholder="请输入您的称呼" id="name">
+            <input type="number" placeholder="请输入您的手机号" id="number" maxlength="11">
+            <!--<div id="province">-->
+                <!--<span>广东省</span>-->
+                <!--<ul class="province-list"></ul>-->
+            <!--</div>-->
+            <!--<div id="city">-->
+                <!--<span>深圳</span>-->
+                <!--<ul class="city-list"></ul>-->
+            <!--</div>-->
+            <!--<div id="area">-->
+                <!--<span>福田区</span>-->
+                <!--<ul class="area-list"></ul>-->
+            <!--</div>-->
+            <button type="button" id="submit">立即申请</button>
+        </div>
+    </div>
+    <div class="index-foot">
+        <div class="index-footCon">
+            <h1 class="index-footHone" style="background: url(./module/index/image/index-look.svg) left 78px no-repeat;background-size:22px 25px;text-indent:34px;">参观样板房<a href="./module/siteLib/siteLib.html" class="index-footAll" title="全部工地-简单住">全部工地</a></h1>
+            <ul class="index-proList"></ul>
+            <!--初始化分页-->
+            <div class="tcdPageCode" id="initPage"></div>
+            <!--分页-->
+            <div class="tcdPageCode" id="searPage"></div>
+        </div>
+    </div>
+</section>
+<!--主体end-->
+<!--登录弹框-->
+<div class="login">
+    <div class="login-con">
+        <span class="login-cancel"></span>
+        <h1 class="login-sel">
+            <span class="login-mobile active">手机登录</span>
+            <span class="login-weixin">微信登录</span>
+        </h1>
+        <!--<h1 class="login-tip">手机快捷登录</h1>-->
+        <div class="login-style">
+            <div class="login-bymobile">
+                <h2 class="login-tipInfo">无需注册账号，手机快捷登录</h2>
+                <div class="login-user">
+                    <input type="number" placeholder="请输入手机号" class="login-userMobile">
+                    <input type="number" placeholder="请输入短信验证码" class="login-userCode">
+                    <input type="text" readonly class="login-userRe" value="获取验证码">
+                </div>
+                <h3 class="login-select"><span></span>自动登陆</h3>
+                <button type="button" class="login-submit">登录</button>
+            </div>
+            <!--<div class="login-bywei">-->
+                <div id="login_container"></div>
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<!--城市选择-->
+<div class="overlayBg"></div>
+<div class="city-change animated">
+    <span class="close">X</span>
+    <div class="title">选择城市<span class="city-tab">
+        <span class="code1">当前城市:</span>
+        <a href="javascript:void(0);"  data-cityid="C199" class="current-city" title="深圳-简单住">深圳</a>
+        </span>
+    </div>
+    <div class="title-line"></div>
+    <div class="fc-main clear">
+        <div class="fl citys-l">
+            <ul id="citySel"></ul>
+        </div>
+        <div class="fl citys-r">
+            <ul id="flCity"></ul>
+        </div>
+    </div>
+</div>
+<!--城市选择end-->
+<!--侧边栏-->
+<div class="index-aslide">
+    <a href="javascript:void(0);" class="aside-promise" title="我的预约工地-简单住">
+        <p>我</p>
+        <p>的</p>
+        <p>预</p>
+        <p>约</p>
+        <p>工</p>
+        <p>地</p>
+        <span class="aside-proCount">0</span>
+    </a>
+    <p class="aside-like"><a href="javascript:void(0);" class="aside-likeDefa"><span class="aside-likeCont"></span></a><a href="javascript:void(0);" class="aside-likeHover" title="关注项目-简单住">关注项目</a></p>
+    <!--<p class="aside-newInfo"><a href="javascript:void(0);" class="aside-newInfoDefa"><span class="aside-newInfocol"></span></a><a href="javascript:void(0);" class="aside-newInfoHover" title="最新消息-简单住">最新消息</a></p>-->
+    <p class="aside-history"><a href="javascript:void(0);" class="aside-historyDefa"></a><a href="javascript:void(0);" class="aside-historyHover" title="历史浏览-简单住">历史浏览</a></p>
+    <button type="button" id="backTop"></button>
+</div>
+<!--立即预约弹框-->
+<div class="shade_bk"></div>
+<div class="appointment_window clear_float" id="appointment_window">
+    <span class="close_window"></span>
+    <div class="appointment_windowLeft">
+        <div class="appointment_windowLtext">
+            <p>一键预约，陪您看装修</p>
+            <p>已有<span>5000</span>人选择预约看工地</p>
+        </div>
+    </div>
+    <div class="appointment_windowRight">
+        <div>
+            <div class="appointment-number">
+                <label>手机号码：</label>
+                <input type="text" name="mobile" id="mobile">
+            </div>
+            <div class="appointment-date">
+                <label>参观日期：</label>
+                <input type="text" name="txt_calendar" id="txt_calendar" onfocus="showDate()" class="calendar" readonly="readonly">
+            </div>
+                <label>参观时间：</label>
+            <p class="visit_time"><span class="vt_active" data-time='9:00~12:00'>上午(9:00~12:00)</span><span data-time='12:00~18:00'>下午(12:00~18:00)</span><span data-time='18:00~21:00'>晚上(18:00~21:00)</span></p>
+            <div class="appointment-budge">
+                <label>装修预算：</label><b>万元</b>
+                <input type="text" name="decorateBudget" id="decorateBudget">
+            </div>
+            <div class="appointment-size">
+                <label>装修面积：</label><b>㎡</b>
+                <input type="text" name="decorateSize" id="decorateSize">
+            </div>
+            <div class="appointment-decolou">
+                <label>装修楼盘：</label>
+                <input type="text" name="proName" id="proName">
+            </div>
+            <div class="deco_style">
+                <label>装修风格：</label>
+                <input type="text" name="" id="decoration_style" class="decoration_style" data-id='' readonly="readonly" onclick="disStyle()">
+                <ul>
+                </ul>
+            </div>
+            <div class="visit-tip">（您还有<span>3</span>次免费预约参观装修现场的机会）</div>
+            <button id="visitBtn">申请免费参观</button>
+        </div>
+    </div>
+</div>
+<!--免费设计申请-->
+<div class="freeApply-mask"></div>
+<div class="freeApply-con">
+    <span class="freeApply-close"></span>
+    <h1>提交成功</h1>
+    <p>HomeyeUp简单住平台已收到您的设计请求，我们的客服代表会在24小时内完成你的设计服务，并通过电话或短信的方式通知您</p>
+</div>
+<!--弹框提示-->
+<div class="collect_success"></div>
+<!--列表展示模板-->
+<script id="showList" type="text/x-jquery-tmpl">
+      <li class="index-proItem">
+            <div class="index-proImg" style="background-image:url(${imghost+coverImgUrl}?w=420&h=312);"><a href="module/siteLib/siteDetail.html?pid=${pid}" title="${title}-简单住" target="_blank"></a></div>
+           
+            <div class="index-proInfo">
+                {{if title}}
+                    <h1 class="index-proName text_over"><a href="module/siteLib/siteDetail.html?pid=${pid}" title="${title}-简单住" target="_blank">${title}</a></h1>
+                {{else}}
+                    <h1 class="index-proName" style="min-height:27px;"><a href="module/siteLib/siteDetail.html?pid=${pid}" title="${title}-简单住" target="_blank">${title}</a></h1>
+                 {{/if}}
+                 <h2 class="index-proTitle">${proName}
+                  {{if proTypeName}}
+                 <span>— ${proTypeName}</span>
+                  {{/if}}
+                 </h2>
+                 <h3 class="index-proDetail">
+                 {{if proSize}}
+                    <span>面积: ${proSize}㎡ </span>
+                 {{/if}}
+                 {{if budget}}
+                    <span>/ 预算: ${budget}万 </span>
+                 {{/if}}
+                 {{if humanTotal}}
+                    <span>/ 人气: ${humanTotal}</span>
+                 {{/if}}
+                    <!--<span>面积: ${proSize}㎡ </span><span>/ 预算: ${budget}万 </span><span>/ 人气: ${humanTotal}</span>-->
+                 </h3>
+            </div>
+            <div class="index-proMise">可参观时间：随时预约
+            {{if allowVisit}}
+            {{if allowVisit==1 && reviewStatus==1}}
+                <a href="javascript:void(0);" class="bh_proMise" data-pid=${pid} data-uid=${uid} title="${title}-简单住"></a>
+            {{/if}}
+            {{/if}}
+            </div>
+      </li>
+</script>
+<!--城市列表-->
+<script id="cityList" type="text/x-jquery-tmpl">
+     <li class="clear">
+         <span class="code-title fl">${py}</span>
+         {{each(i,user) c}}
+            <div class="city-enum fl"><a href="javascript:void(0);" data-cityId=${user.cityid} title="${user.cityname}-简单住">${user.cityname}</a></div>
+         {{/each}}
+     </li>
+</script>
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script src="public/js/jquery-1.11.1.min.js"></script>
+<script src="public/js/jquery.page.js"></script>
+<script src="public/js/dateJs.js?t=20171218"></script>
+<script src="public/js/apiProvider.js?t=2017121802"></script>
+<script src="public/js/newFooter.js?t=2018131"></script>
+<script src="public/js/newHeader.js?t=20171218"></script>
+<script src="public/js/jquery.tmpl.min.js"></script>
+<script src="public/js/swiper.min.js"></script>
+<script src="module/index/js/index.js?t=20171218"></script>
+</body>
+</html>

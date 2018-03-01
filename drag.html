@@ -1,0 +1,261 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>发布记录</title>
+    <meta charset="utf-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="简单住不做装修，只提供真实海量实地装修现场，专业装修顾问陪您看，满足您实地看装修的多种选择" />
+    <meta name="keywords" content="装修,看装修,简单住,homeyeup,装修顾问" />
+    <link rel="shortcut icon" href="./public/image/favicon.ico" />
+    <link rel="stylesheet" href="./public/css/reset.css?t=20171219" />
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css?t=201712199" />
+    <script src="./public/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="./public/js/drag.js"></script>
+    <script>
+    $(function() {
+        // $('.drag-box-1 .drag').each(function(index) {
+        //     $(this).myDrag({
+        //         direction: 'x'
+        //     });
+        // });
+        // $('.drag-box-2 .drag').each(function(index) {
+        //     $(this).myDrag({
+        //         randomPosition: true,
+        //         direction: 'y',
+        //         handler: false
+        //     });
+        // });
+        // $('.drag-box-3 .drag').each(function(index) {
+        //     $(this).myDrag({
+        //         randomPosition: true,
+        //         direction: 'all',
+        //         handler: false
+        //     });
+        // });
+        // $('.drag-box-4 .drag').each(function(index) {
+        //     $(this).myDrag({
+        //         randomPosition: true,
+        //         direction: 'all',
+        //         handler: '.handler'
+        //     });
+        // });
+        // $('.drag-box-5 .drag').each(function(index) {
+        //     $(this).myDrag({
+        //         parent: '.test',
+        //         randomPosition: false,
+        //         direction: 'all'
+        //     });
+        // });
+        $("#adddiv").click(function() {
+        	$('.drag-box-6 .drag').removeClass("active");
+            $(".drag-box-6").append(
+                // '<div class="drag drag-6" style="position: absolute; left: 161px; top: 90px; cursor: move;">' +
+                // '</div>'
+
+                '<div class="drag active" data-left="772" data-top="461" data-width="48" data-height="45" data-proid="311" style="position: absolute; left: 161px; top: 90px; cursor: move;">'+
+        '</div>'
+            );
+            $('.drag-box-6 .drag').each(function(index) {
+                $(this).myDrag({
+                    randomPosition: false, //初始化随机位置
+                    dragStart: function(x, y) {
+                        $('.lg span').html('').eq(0).html('开始拖动了! — 坐标 x：' + x + ' y：' + y);
+                    },
+                    dragEnd: function(x, y) {
+                       
+                        $('.lg span').html('').eq(1).html('停止拖动了! — 坐标 x：' + x + ' y：' + y);
+                    },
+                    dragMove: function(x, y) {
+                        console.log(x);
+                        $('.lg span').html('').eq(2).html('拖动中! — 坐标 x：' + x + ' y：' + y);
+                    }
+                });
+            });
+        });
+
+         window.onload = function(){
+   var wrap = document.getElementById('wrapper');  
+   wrap.style.display = 'none';  
+   var li = document.getElementsByTagName('li');
+ 
+   for(var i=0;i<li.length;i++){
+     li.onmouseover = function(){
+     this.classname = "active";
+   }
+   li.onmouseout = function(){
+     this.classname = "";
+   }  
+  }   
+ 
+  document.oncontextmenu = function(e){
+
+    var e = event || window.event;
+ 
+    if ($(e.target).hasClass("drag")) {
+    	wrap.style.display = "block";
+
+    var topval=document.getElementById("drag-box").offsetTop;
+    console.log(topval);
+    var leftval=document.getElementById("drag-box").offsetLeft;
+    console.log(leftval);
+    wrap.style.left = (e.clientX-leftval+25)+'px';
+    wrap.style.top = (e.clientY-topval+25) +'px';
+    // $(e.target).addClass("active").removeClass("active");
+     return false;//取消右键点击的默认事件
+    }
+    
+  }
+   //  document.onclick= function(){
+   //    wrap.style.display = 'block';
+   // }
+ }
+ $("#wrapper li").click(function(){
+ 	$("#wrapper").hide();
+ 	 $(".active").remove();
+ });
+
+        // $('.drag-box-6 .drag').each(function(index) {
+        //     $(this).myDrag({
+        //     	randomPosition:false, //初始化随机位置
+        //         dragStart: function(x, y) {
+        //             $('.lg span').html('').eq(0).html('开始拖动了! — 坐标 x：' + x + ' y：' + y);
+        //         },
+        //         dragEnd: function(x, y) {
+        //         	console.log(x);
+        //             $('.lg span').html('').eq(1).html('停止拖动了! — 坐标 x：' + x + ' y：' + y);
+        //         },
+        //         dragMove: function(x, y) {
+        //             $('.lg span').html('').eq(2).html('拖动中! — 坐标 x：' + x + ' y：' + y);
+        //         }
+        //     });
+        // });
+    });
+    </script>
+</head>
+
+<body>
+	 
+    <h1 class="title">发布记录添加标签</h1>
+    <!--   <div class='help'>
+        <pre>
+		  $(element).myDrag({
+			parent:'parent', //定义拖动不能超出的外框,拖动范围
+			randomPosition:true, //初始化随机位置
+			direction:'all', //方向
+			handler:false, //把手
+			dragStart:function(x,y){}, //拖动开始 x,y为当前坐标
+			dragEnd:function(x,y){}, //拖动停止 x,y为当前坐标
+			dragMove:function(x,y){} //拖动进行中 x,y为当前坐标
+		  });
+			/*
+			***说明
+			***1.代码34行，阻止除img元素外所有子元素冒泡事件，如有需要请自行修改
+			***2.一些浏览器无法阻止img默认浏览器事件（其实就是拖动img会新窗口打开），so，最好是把img做成背景，或者在img上再覆盖一个div层，再使用下面的handler拖动
+			***3.本插件有添加addClass功能，在拖动的时候，会给拖动元素添加'on'的样式，如有需要，可自行修改'on'的样式表，本例'on'的样式为z-index:9;为了保持拖动的时候，当前元素为最高层
+			*/
+		</pre>
+        <h2>拖动方向参数：direction 默认值all <i class='mk1'>(x/y/all)</i></h2>
+        <pre>
+		$('.drag-box-1 .drag').each(function(index){
+		  $(this).myDrag({
+			direction:'x'
+		  });
+		});</pre>
+    </div> -->
+    <!-- <h3>Demo1：(direction:'x')</h3>
+    <div class='drag-box drag-box-1'>
+        <div class='drag drag-1'><img src="img/04.jpg">
+            <input type="text">
+        </div>
+        <div class='drag drag-1'><img src="img/07.jpg"></div>
+    </div>
+    <h3>Demo2：(direction:'y')</h3>
+    <div class='drag-box drag-box-2'>
+        <div class='drag drag-2'><img src="img/03.jpg"></div>
+        <div class='drag drag-2'><img src="img/06.jpg"></div>
+    </div>
+    <h3>Demo3：(direction:'all')</h3>
+    <div class='drag-box drag-box-3'>
+        <div class='drag drag-3'><img src="img/05.jpg"></div>
+        <div class='drag drag-3'><img src="img/06.jpg"></div>
+    </div>
+    <div class='help'>
+        <h2>把手参数：handler 默认值false <i class='mk1'>('.handler')</i></h2>
+        <p>此用来添加元素内部 handler</p>
+        <pre>
+		$('.drag-box-1 .drag').each(function(index){
+		  $(this).myDrag({
+			handler:'.handler'
+		  });
+		});</pre>
+    </div>
+    <h3>Demo4：</h3>
+    <div class='drag-box drag-box-4'>
+        <div class='drag drag-4'>
+            <div class='handler'>class='handler'</div><img src="img/02.jpg"></div>
+        <div class='drag drag-4'>
+            <div class='handler'>class='handler'</div><img src="img/04.jpg"></div>
+    </div>
+    <div class='help'>
+        <h2>拖动范围参数：parent 默认值parent <i class='mk1'>('.test')</i></h2>
+        <p>定义拖动范围</p>
+        <pre>
+		$('.drag-box-1 .drag').each(function(index){
+		  $(this).myDrag({
+			parent'.test'
+		  });
+		});</pre>
+    </div>
+    <h3>Demo5：</h3>
+    <div class='test'>
+        <i>test Box</i>
+        <div class='drag-box drag-box-5'>
+            <div class='drag drag-5'><img src="img/05.jpg"></div>
+            <div class='drag drag-5'><img src="img/06.jpg"></div>
+        </div>
+    </div>
+    <div class='help'>
+        <h2>回调函数：dragStart,dragEnd,dragMove</h2>
+        <p>定义函数</p>
+        <pre>
+	$('.drag-box-6 .drag').each(function(index){
+		$(this).myDrag({
+			dragStart:function(){
+				$('.lg span').html('').eq(0).html('开始拖动!');
+			},
+			dragEnd:function(){
+				$('.lg span').html('').eq(1).html('停止拖动!');
+			},
+			dragMove:function(){
+				$('.lg span').html('').eq(2).html('拖动中!');
+			}
+		});
+	});</pre>
+    </div> -->
+    <button id="adddiv">增加标签</button>
+    <div class='log'>
+        <div class='lg log-1'>开始log：<span></span></div>
+        <div class='lg log-2'>结束log：<span></span></div>
+        <div class='lg log-3'>进行log：<span></span></div>
+    </div>
+    <div id="drag-box" class='drag-box drag-box-6'>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513682787553&di=a3439567c1a8a6f31b5e067d39fa40ae&imgtype=0&src=http%3A%2F%2Fpic.tugou.com%2Fmeitu_gather%2F1456984532_8116396.jpg">
+
+        <!-- <div class="labelitem" data-left="772" data-top="461" data-width="48" data-height="45" data-proid="311">
+            <a href="javascript:void(0);">
+                <div class="drop-div"><em></em><i></i></div>
+            </a>
+        </div> -->
+        <ul id="wrapper">
+		    <li>删除</li>
+		    <li>修改</li>
+ 		</ul>
+    </div>
+</body>
+
+</html>

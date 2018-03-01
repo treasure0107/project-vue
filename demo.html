@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>Controlling History</title>
+
+<!-- <script type="text/javascript" src="//use.typekit.net/vue1oix.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
+
+<!-- <link rel="stylesheet" href="style.css" type="text/css" /> -->
+<style type="text/css">
+	body {
+	margin: 0;
+	padding: 0;
+	font-size: 62.5%;
+	background: #fff;
+}
+.play {
+	width: 64px;
+	height: 64px;
+	border-radius: 100px;
+	margin: 0px auto;
+	box-shadow: inset 0 0 70px rgba(0,0,0,0.4);
+	color: #fff;
+	font-size: 3em;
+	text-align: center;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 15px 0 0 4px;
+	position: relative;
+	top: 10px;
+	cursor: pointer;
+	float: left;
+}
+
+#container {
+	float: right;
+	width: 100%;
+	clear: both;
+}
+.play:hover {
+	box-shadow: inset 0 0 90px rgba(0,0,0,0.6);	
+}
+
+.pabtn {
+	position: relative;
+	left: -2px;
+	top: 2px;
+	display: none;
+}
+
+.pabtn .bar {
+	display: inline-block;
+	width: 8px;
+	height: 28px;
+	background: #fff;
+}
+
+#header {
+	background: #536163;
+	height: 85px;
+	background: rgb(100, 190, 202);
+	box-shadow: inset 0 -23px 30px -29px rgba(0,0,0,0.6), inset 0 -55px 82px -30px rgba(146, 53, 247, 0.6);
+}
+
+#content {
+	padding: 20px 30px;
+}
+
+h1 {
+	font-size: 4em;
+	border-bottom: 2px solid #000;
+	display: inline-block;
+	padding-bottom: 6px;
+}
+
+#content div {
+	font-size: 2em;
+	line-height: 36px;
+}
+
+#content a {
+	color: #33b6db;
+	text-decoration: none;
+	border-bottom: 2px solid #33b6db;
+	font-weight: bold;
+}
+
+#content a:hover {
+	color: #82d4eb;
+	border-bottom: 2px solid #82d4eb;
+}
+
+.music-author {
+	font-size: 2em;
+	float: left;
+	position: relative;
+	top: 28px;
+	left: 20px;
+	color: #fff;
+	display: inline-block;
+}
+
+.music-author a {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 2px solid #fff;
+}
+
+.music-author a:hover {
+	border-bottom: none;
+}
+
+.center-player {
+	width: 400px;
+	margin: 0px auto;
+}
+/* ========= IGNORE */
+
+.travel {
+	padding: 10px;
+	background: rgba(0,0,0,0.6);
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	text-decoration: none;
+}
+
+.travel a {
+	font-family: 'Georgia', serif;
+	text-decoration: none;
+	border-bottom: 1px solid #f9f9f9;
+	color: #f9f9f9;
+	font-size: 1.6em;
+	display: inline-block;
+}
+</style>
+
+<script src="public/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	
+	function anchorClick(link) {
+		
+		var linkSplit = link.split('/').pop();
+		
+		// $.get('/demo/history/pages/' + linkSplit, function(data) {
+		// 	$('#content').html(data);
+		// });
+		// $.get('http://192.168.1.240/yuyue/help/ajaxtest', function(response,status,xhr) {
+		// 	console.log(response);
+		// 	$('#content').html(response);
+		// },'html');
+		$.get('/yuyue/help/ajaxtest', function(response) {
+			$('#content').html(response);
+		});
+		// url,data,success(response,status,xhr),dataType
+		// $.ajax({
+		//   url: 'http://192.168.1.240/yuyue/help/ajaxtest',
+		//   // data: data,
+		//   success: function(data){
+		//   		console.log(data);
+		//   		$('#content').html(data);
+		//   },
+		//   dataType: 'html'
+		// });
+	}
+	// anchorClick();
+	$('#container').on('click', 'span', function(e) {
+		console.log($(this).attr('href'));
+		window.history.pushState(null, null, $(this).attr('href'));
+		// window.history.pushState(null, null, '/yuyue/help/ajaxtest');
+		anchorClick($(this).attr('href'));
+		e.preventDefault();
+		
+
+	});
+	
+	window.addEventListener('popstate', function(e) {
+		
+		anchorClick(location.pathname);		
+	
+	});
+	
+	
+	var play = false;
+	
+	$('.play').click(function() {
+		
+		if(play == false) {
+			
+			$('#music')[0].play();
+			play = true;
+			$('.play .plbtn').hide();
+			$('.play .pabtn').show();
+			
+		} else {
+			
+			$('#music')[0].pause();
+			play = false;
+			$('.play .plbtn').show();
+			$('.play .pabtn').hide();
+		
+		}
+	});
+	
+});
+</script>
+
+
+</head>
+<body>
+
+<div class="travel">
+	<a href="http://www.inserthtml.com/2013/06/history-api/鈥�">&laquo; Back to the Article</a>
+</div>
+
+<div id="container" class="tk-museo-sans">
+	<div id="header">
+		<div class="center-player">
+			<div class="play">
+				<div class="plbtn">
+					&#9658;
+				</div>
+				<div class="pabtn">
+					<span class="bar"> </span>
+					<span class="bar"> </span>
+				</div>
+			</div>		
+			<div class="music-author">
+				Music: <a href="http://freemusicarchive.org/music/Fabrizio_Paterlini/netBloc_Vol_30_aldartea/01_-_Fabrizio_Paterlini_-_Veloma">(Veloma by Fabrizio Paterlini)</a>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		
+		<h1>Great!</h1>
+		<div>
+			If you pressed the play button before the music should still be running, if your browser supports it that is. Try clicking the back button now. The music will keep playing! Alternatively you can click <span class="history" href="/yuyue/help/ajaxtest">this link</span> to try another page.
+		</div>
+	</div>
+</div>
+
+<audio id="music">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
